@@ -28,7 +28,7 @@ class ItemDaoTest {
 }
 
 @Before
-fun createDb() {
+fun createDb(): Unit {
     val context: Context = ApplicationProvider.getApplicationContext()
     // Using an in-memory database because the information stored here disappears when the
     // process is killed.
@@ -36,7 +36,7 @@ fun createDb() {
         // Allowing main thread queries, just for testing.
         .allowMainThreadQueries()
         .build()
-    itemDao = inventoryDatabase.itemDao()
+    var itemDao = inventoryDatabase.itemDao()
 }
 
 
